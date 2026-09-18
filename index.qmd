@@ -1,5 +1,5 @@
 ---
-title: "Baseball"
+title: "Major League Baseball History"
 ---
 
-Welcome to the Baseball project website!
+Welcome! This site explores the rich history of Major League Baseball through data from the Lahman database. Here, we analyze historical trends, team statistics, and player performances across decades of the game.
