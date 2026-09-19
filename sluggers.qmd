@@ -1,0 +1,69 @@
+---
+title: "Sluggers"
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+library(Lahman)
+
+Batting |> 
+  group_by(playerID) |> 
+  summarize(
+    total_HR = sum(HR, na.rm = TRUE),
+    first_year = min(yearID),
+    last_year = max(yearID)
+  ) |> 
+  slice_max(total_HR, n = 15) |> 
+  left_join(People, by = "playerID") |> 
+  mutate(
+    name = paste(nameFirst, nameLast),
+    steroid_era = if_else(
+      last_year >= 1994 & first_year <= 2009,
+      "Active",
+      "Not Active"
+    )
+  ) |> 
+  ggplot(aes(x = total_HR, y = fct_reorder(name, total_HR), fill = steroid_era)) +
+  geom_col() +
+  labs(
+    title = "Top 15 Career Home Run Leaders and the Steroid Era",
+    x = "Career Home Runs",
+    y = "Player",
+    fill = "Steroid Era (1994–2009)",
+    caption = "Source: Lahman Baseball Database"
+  )
+```
+
+```{r}
+Batting |> 
+  group_by(playerID) |> 
+  summarize(
+    total_HR = sum(HR, na.rm = TRUE),
+    first_year = min(yearID),
+    last_year = max(yearID)
+  ) |> 
+  slice_max(total_HR, n = 15) |> 
+  left_join(People, by = "playerID") |> 
+  mutate(
+    name = paste(nameFirst, nameLast),
+    span = paste0(first_year, "–", last_year)
+  ) |> 
+  select(name, total_HR, span) |> 
+  knitr::kable(
+    col.names = c("Player", "Career Home Runs", "Span of Seasons")
+  )
+```
+
+```{r}
+Batting |> 
+  filter(playerID == "bondsba01") |> 
+  ggplot(aes(x = yearID, y = HR)) +
+  geom_col() +
+  labs(
+    title = "Barry Bonds Home Runs by Season",
+    x = "Season",
+    y = "Home Runs",
+    caption = "Source: Lahman Baseball Database"
+  )
+```
