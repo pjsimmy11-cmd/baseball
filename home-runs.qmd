@@ -3,7 +3,6 @@ title: "Home runs"
 ---
 
 ```{r}
-#| cache: true
 #| message: false
 library(tidyverse)
 library(Lahman)

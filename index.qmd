@@ -2,4 +2,6 @@
 title: "Major League Baseball History"
 ---
 
-Welcome! This site explores the rich history of Major League Baseball through data from the Lahman database. Here, we analyze historical trends, team statistics, and player performances across decades of the game.
+Welcome! This site explores the history of Major League Baseball through data from the Lahman database, examining how the long ball has transformed the game over the past century. By analyzing team batting trends, we trace the dramatic rise in home runs per game across eras and highlight how offensive power shifted even through shortened seasons.
+
+We also dive into baseball's premier power hitters, looking at the top 15 career home run leaders, the impact of the Steroid Era, and a season-by-season look at all-time leader Barry Bonds. Use the **Home runs** and **Sluggers** links in the navigation bar above to explore each analysis.
